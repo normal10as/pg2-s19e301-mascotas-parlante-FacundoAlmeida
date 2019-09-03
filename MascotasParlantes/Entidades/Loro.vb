@@ -4,24 +4,21 @@ Public Class Loro
 
 
     'constructor
+    '- private
+    '+ public
+    'public solamente poner el get y set
+
     Public Sub New()
-        Memoria = New Queue(Of String) 'Dar valor siempre a la propiedad y no a la variable "_memoria".
-        FechaNacimiento = Date.Now()
+        memoria = New Queue(Of String) 'Dar valor siempre a la propiedad y no a la variable "_memoria".
+        FechaNacimiento = Date.Now
         Nombre = " "
-        Memoria.Enqueue("Hola")
+        memoria = New Queue(Of String)
+        memoria.Enqueue("Hola")
     End Sub
 
 
-    Private _memoria As Queue(Of String)
+    Private memoria As Queue(Of String)
 
-    Public Property Memoria As Queue(Of String)
-        Get
-            Return _memoria
-        End Get
-        Set(value As Queue(Of String))
-            _memoria = value
-        End Set
-    End Property
     '--------------------------------------
     Private _edad As Short
     Public ReadOnly Property Edad As Short
@@ -55,6 +52,12 @@ Public Class Loro
         Dim DiferenciaEdad As UShort
         Dim FechaActual As Date = Date.Now()
         DiferenciaEdad = (FechaActual.Year) - (FechaNacimiento.Year)
+        If (FechaActual.Month < FechaNacimiento.Month) Then
+            DiferenciaEdad = DiferenciaEdad - 1
+        ElseIf (FechaActual.Month = FechaNacimiento.Month And FechaActual.day < FechaNacimiento.day) Then
+            DiferenciaEdad = DiferenciaEdad - 1
+
+        End If
         Return DiferenciaEdad
     End Function
 

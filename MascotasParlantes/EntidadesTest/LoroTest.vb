@@ -7,7 +7,8 @@ Module LoroTest
         Dim test As New Loro()
         Dim frase As String
 
-        test.FechaNacimiento = #03-03-2001#
+        test.FechaNacimiento = #10-02-2001#
+
         Console.WriteLine("Fecha nacimiento: " & test.FechaNacimiento)
         test.Escuchar("Papita")
         test.Escuchar(" pa el loro")

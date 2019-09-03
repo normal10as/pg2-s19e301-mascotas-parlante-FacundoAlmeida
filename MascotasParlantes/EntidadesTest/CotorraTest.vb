@@ -1,6 +1,6 @@
 Imports System
 Imports Entidades
-Module Program
+Module CotorraTest
 
 
 End Module
